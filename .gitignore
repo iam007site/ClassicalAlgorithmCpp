@@ -28,3 +28,5 @@
 *.out
 *.app
 *.cbp
+/*.cscope_file_list
+/*.depend
