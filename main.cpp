@@ -62,9 +62,9 @@ void test_mystrcat()
 }
 
 // 实现string的四个方法，包括构造函数、拷贝构造函数、析构函数、复制操作符
-class MyString{
+class MyString1{
 public:
-    MyString(const char* pdata)
+    MyString1(const char* pdata)
     {
         if (NULL == pdata)
         {
@@ -78,12 +78,12 @@ public:
         }
     }
 
-    MyString(const MyString &ref)
+    MyString1(const MyString1 &ref)
     {
         data = new char[strlen(ref.data) + 1];
         strcpy(data, ref.data);
     }
-    ~MyString()
+    ~MyString1()
     {
         if (NULL != data)
         {
@@ -91,7 +91,7 @@ public:
             data = NULL;
         }
     }
-    const MyString & operator =(const MyString &ref)
+    const MyString1 & operator =(const MyString1 &ref)
     {
         if(this == &ref)
         {
@@ -114,9 +114,9 @@ private:
 
 void test_MyString()
 {
-    MyString mystring("12345");
-    MyString mystring2(mystring);
-    MyString mystring3 = mystring;
+    MyString1 mystring("12345");
+    MyString1 mystring2(mystring);
+    MyString1 mystring3 = mystring;
     cout << mystring.getData() << mystring2.getData() << mystring3.getData() << endl;
 }
 
@@ -479,6 +479,65 @@ void test_queuePop()
         cout<< queuePop(stack1) << endl;
     }
 }
+// 解决地址重叠的memoryCopy,功能跟memoryMove()一样了
+void* myMemoryCopy(void* dest, const void* src,size_t count)
+{
+    if (NULL == dest || NULL == src || count <= 0)
+    {
+        return NULL;
+    }
+    char* destIter = (char*)dest;
+    const char* srcIter = (char*)src;
+    if (srcIter>destIter || destIter+count<srcIter)
+    {
+        // 没有重叠影响，从前往后拷贝
+        while(count--)
+        {
+            *destIter++ = *srcIter++;
+        }
+    }
+    else
+    {
+        // 有重叠，从后往前拷贝
+        destIter += count -1;
+        srcIter += count - 1;
+        while(count--)
+        {
+            *destIter-- = *srcIter--;
+        }
+    }
+    return dest;
+}
+
+void test_myMemoryCopy()
+{
+    char* src = "1qaz@WSX";
+    char dest[strlen(src)] = "22222222";
+    myMemoryCopy(dest, src, strlen(src));
+    println(dest);
+}
+
+void* myMemeorySet(void* buffer, int c, size_t count)
+{
+    if (NULL == buffer ||count < 0)
+    {
+        return NULL;
+    }
+    char* bufferIter = (char*)buffer;
+    while(count--)
+    {
+        *bufferIter++ = (char)c;
+    }
+    return buffer;
+}
+
+void test_MyMemorySet()
+{
+    char buffer[] = "1qaz@WSX";
+    println((char*)memset(buffer,'+', 5));
+    println((char*)myMemeorySet(buffer,'-', 5));
+}
+
 
 int main()
 {
@@ -496,7 +555,9 @@ int main()
     // test_fibonacci();
     // test_randomInt();
     // test_PrintPrime();
-    test_queuePop();
+    // test_queuePop();
+    // test_myMemoryCopy();
+    // test_MyMemorySet();
     system("pause");
     return 0;
 }
