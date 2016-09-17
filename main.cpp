@@ -4,6 +4,7 @@
 #include <time.h>
 #include <math.h>
 #include <stack>
+#include <MyString.h>
 using namespace std;
 
 void println(char* data)
@@ -538,6 +539,18 @@ void test_MyMemorySet()
     println((char*)myMemeorySet(buffer,'-', 5));
 }
 
+void test_MyStringClass()
+{
+    MyString str1;
+    MyString str2("2222222");
+    cout << str2 << endl;
+
+    str1 = str2;
+    cout << str1 <<endl;
+
+    cout << str1 + str2 << endl;
+}
+
 
 int main()
 {
@@ -558,6 +571,7 @@ int main()
     // test_queuePop();
     // test_myMemoryCopy();
     // test_MyMemorySet();
+    test_MyStringClass();
     system("pause");
     return 0;
 }

@@ -57,28 +57,28 @@ public:
     //insert
     MyString& insert(size_t,const MyString&);
     //assign 替换
-    MyString& assign(MyString&,size_t,size_t);
-    // erase 删除
-    MyString& erase(size_t,size_t);
-    //find_first_of 查找某一个字符 size_t 是非符号数的,重载
-    // 查找在字符串中第一个与str中的某个字符匹配的字符，返回它的位置。
-    //搜索从index开始，如果没找到就返回string::npos
-    int find_first_of(const char* str,size_t index=0);
-    int find_first_of(const char ch,size_t index=0);
-    int find_first_of(const MyString &,size_t index=0);
-    // 在字符串中查找第一个与str中的字符都不匹配的字符，返回它的位置。搜索从index开始。如果没找到就返回string::nops
-    int find_first_not_of(const char* str,size_t index=0);
-    int find_first_not_of(const char ch,size_t index=0);
-    int find_first_not_of(const MyString&,size_t index=0);
-    // swap
-    void swap(MyString& lhs,MyString& rhs);
-    // replace_all
-    MyString& replace_all(const char oldc,const char newc=NULL);
-    MyString& replace(size_t index,size_t num1,size_t num2,const char ch);
-    //find
-    int find(const char* str,size_t index=0);
-    int find(const MyString& str,size_t index=0);
-    int find(const char ch,size_t index=0);
+//    MyString& assign(MyString&,size_t,size_t);
+//    // erase 删除
+//    MyString& erase(size_t,size_t);
+//    //find_first_of 查找某一个字符 size_t 是非符号数的,重载
+//    // 查找在字符串中第一个与str中的某个字符匹配的字符，返回它的位置。
+//    //搜索从index开始，如果没找到就返回string::npos
+//    int find_first_of(const char* str,size_t index=0);
+//    int find_first_of(const char ch,size_t index=0);
+//    int find_first_of(const MyString &,size_t index=0);
+//    // 在字符串中查找第一个与str中的字符都不匹配的字符，返回它的位置。搜索从index开始。如果没找到就返回string::nops
+//    int find_first_not_of(const char* str,size_t index=0);
+//    int find_first_not_of(const char ch,size_t index=0);
+//    int find_first_not_of(const MyString&,size_t index=0);
+//    // swap
+//    void swap(MyString& lhs,MyString& rhs);
+//    // replace_all
+//    MyString& replace_all(const char oldc,const char newc=NULL);
+//    MyString& replace(size_t index,size_t num1,size_t num2,const char ch);
+//    //find
+//    int find(const char* str,size_t index=0);
+//    int find(const MyString& str,size_t index=0);
+//    int find(const char ch,size_t index=0);
 
 
     //private
