@@ -66,7 +66,8 @@ public:
 //    int find_first_of(const char* str,size_t index=0);
 //    int find_first_of(const char ch,size_t index=0);
 //    int find_first_of(const MyString &,size_t index=0);
-//    // 在字符串中查找第一个与str中的字符都不匹配的字符，返回它的位置。搜索从index开始。如果没找到就返回string::nops
+//    // 在字符串中查找第一个与str中的字符都不匹配的字符，返回它的位置。
+//    // 搜索从index开始,如果没找到就返回string::nops
 //    int find_first_not_of(const char* str,size_t index=0);
 //    int find_first_not_of(const char ch,size_t index=0);
 //    int find_first_not_of(const MyString&,size_t index=0);

@@ -5,6 +5,11 @@
 #include <math.h>
 #include <stack>
 #include <MyString.h>
+#include "src/Q9706.cpp"
+#include "src/WellGame.cpp"
+#include<iostream>
+#include<vector>
+#include<stdio.h>
 using namespace std;
 
 void println(char* data)
@@ -15,15 +20,17 @@ void println(char* data)
 // 实现字符串的拷贝
 char* mystrcpy(const char* src, char* dest)
 {
-    if (NULL == src || NULL == dest) {
+    if (NULL == src || NULL == dest)
+    {
         return NULL;
     }
-    if (src == dest) {
+    if (src == dest)
+    {
         return dest;
     }
     char* iter = dest;
     while((*iter++ == *src++) != '\0')
-    return dest;
+        return dest;
 }
 
 void test_mystrcpy()
@@ -63,7 +70,8 @@ void test_mystrcat()
 }
 
 // 实现string的四个方法，包括构造函数、拷贝构造函数、析构函数、复制操作符
-class MyString1{
+class MyString1
+{
 public:
     MyString1(const char* pdata)
     {
@@ -150,7 +158,7 @@ int myatoi(const char* data)
     int len = strlen(data);
     int result = 0;
     int pow = 1;
-    for (int i = len-1;i>= 0 ;--i,pow *= 10)
+    for (int i = len-1; i>= 0 ; --i,pow *= 10)
     {
         result += (data[i] - '0')*pow;
     }
@@ -255,7 +263,8 @@ void test_MyBinarySearch()
     cout << myBinarySearch(data, 8, 5);
 }
 
-struct LNode{
+struct LNode
+{
     LNode* next;
     int value;
 };
@@ -271,7 +280,8 @@ void deleteLNode(LNode* head, int value)
     LNode* next = newHead->next;
     while(NULL != next)
     {
-        if(value == next->value){
+        if(value == next->value)
+        {
             pre->next = next->next;
             delete next;
             next = pre->next;
@@ -288,7 +298,7 @@ void deleteLNode(LNode* head, int value)
 void insertLNode(LNode *head, int index, int value)
 {
     LNode *iter = head;
-    for (int i=0;i<index && NULL != iter;i++)
+    for (int i=0; i<index && NULL != iter; i++)
     {
         ;
     }
@@ -326,7 +336,7 @@ void test_reverLNode()
     head->value = 0;
     head->next = 0;
     LNode* iter = head;
-    for(int i=1;i<6;i++)
+    for(int i=1; i<6; i++)
     {
         LNode* node = new LNode;
         node->value = i;
@@ -377,7 +387,7 @@ int fibonacci2(int n)
     int n2 = 0;
     int n1 = 1;
     int result = 0;
-    for (int i=2;i<=n;i++)
+    for (int i=2; i<=n; i++)
     {
         result = n1 + n2;
         n2 = n1;
@@ -388,12 +398,12 @@ int fibonacci2(int n)
 
 void test_fibonacci()
 {
-    for (int i=0;i<11;i++)
+    for (int i=0; i<11; i++)
     {
         cout << fibonacci1(i) << endl;
     }
 
-    for (int i=0;i<11;i++)
+    for (int i=0; i<11; i++)
     {
         cout << fibonacci2(i) << endl;
     }
@@ -413,7 +423,7 @@ int randomInt(int min,int max)
 
 void test_randomInt()
 {
-    for(int i=0;i<10;i++)
+    for(int i=0; i<10; i++)
     {
         cout << randomInt(i*10,100) << endl;
     }
@@ -422,7 +432,7 @@ void test_randomInt()
 // 是否是素数
 bool isPrime(int n)
 {
-    for (int i= 2;i<=(int)sqrt(n);i++)
+    for (int i= 2; i<=(int)sqrt(n); i++)
     {
         if(n%i == 0)
         {
@@ -435,7 +445,7 @@ bool isPrime(int n)
 // 打印[2, n]的素数
 void printPrime(int n)
 {
-    for (int i=2;i<=n;i++)
+    for (int i=2; i<=n; i++)
     {
         if(isPrime(i))
         {
@@ -471,7 +481,7 @@ int queuePop(stack<int> &stacka)
 void test_queuePop()
 {
     stack<int> stack1;
-    for (int i=0;i<10;i++)
+    for (int i=0; i<10; i++)
     {
         stack1.push(i);
     }
@@ -571,7 +581,14 @@ int main()
     // test_queuePop();
     // test_myMemoryCopy();
     // test_MyMemorySet();
-    test_MyStringClass();
+    // test_MyStringClass();
+    // Q9706::test();
+    // WellGame::run();
+
+    int i = 0;
+    int j = (i += i > 0);
+    //i += i > 0 ? i++ : i--;
+    cout << i << j <<  endl;
     system("pause");
     return 0;
 }
